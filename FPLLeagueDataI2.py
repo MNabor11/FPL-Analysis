@@ -21,7 +21,7 @@ class GettingLeagueData:
             for manager in managers:
                 manager_info = {
                     'ID': manager['entry_id'],
-                    'Name': manager['player_first_name'] + " " + manager['player_last_name'],
+                    'Manager': manager['player_first_name'] + " " + manager['player_last_name'],
                     'Team Name': manager['entry_name'],
                     'Short Name': manager['short_name']
                 }
@@ -80,7 +80,7 @@ class fplData:
         for player in players:
             player_info = {
                 "ID": player['id'],
-                "Name": player['first_name']+" "+player['second_name'],
+                "Player": player['first_name']+" "+player['second_name'],
                 "Total Points": player['total_points'],
                 # add mapping? for player position?
                 "Position": player['element_type'],

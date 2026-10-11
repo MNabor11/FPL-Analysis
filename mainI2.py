@@ -10,9 +10,8 @@ getting_seasonT = True
 def main():
     status = True
     while status:
-        user_league_id = int(
-            input("(-9999 to cancel)\nEnter league ID: "))
-        if user_league_id != -9999:
+        user_league_id = input("(-9999 to cancel)\nEnter league ID: ")
+        if user_league_id.isdigit():
 
             # pulling league name and manager data
             try:
@@ -25,13 +24,11 @@ def main():
 
             # getting manager players and player id's
 
-            def GettingMangerElement():
-                element_player_data = elementData(user_league_id)
-                player_element_df = element_player_data.get_element_data()
-                return player_element_df
-            print(GettingMangerElement())
+            element_player_data = elementData(user_league_id)
+            player_element_df = element_player_data.get_element_data()
+            # print(player_element_df)
 
-            # getting the players data
+   # getting the players data
             fpl_Data = fplData(user_league_id)
             fpl_player_data_df = fpl_Data.get_fpl_data()  # fpl player data frame
             fpl_teams_data_df = fpl_Data.get_fpl_teams()  # teams data frame
@@ -41,6 +38,13 @@ def main():
             fpl_player_data_df['Position'] = fpl_player_data_df['Position'].map(
                 changing_player_postion)
             # print(fpl_player_data_df)
+
+            merge_player = pd.merge(
+                player_element_df, fpl_player_data_df, left_on="Player ID", right_on="ID", how="right").drop(columns=['ID'])
+            # print(merge_player)
+            merge_manager_player = pd.merge(
+                manager_data_df, merge_player, left_on='ID', right_on="Owner", how="inner").drop(columns=['Owner'])
+            print(merge_manager_player.tail(30))
 
             # old total season data s23 - s2526
             get_old_season_data = input(
@@ -68,9 +72,13 @@ def main():
                 print("Skipping old season data.")
             else:
                 print("Invalid input. Please enter 'y' or 'n'.")
-        else:
+        elif user_league_id != -9999:
             print("Ending...")
             break
+        elif not user_league_id.isdigit():
+            print("Invalid input \nTry again...\n")
+        else:
+            print("Invalid")
 
 
 if __name__ == "__main__":
