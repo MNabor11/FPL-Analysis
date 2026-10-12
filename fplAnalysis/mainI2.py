@@ -1,8 +1,9 @@
 import pandas as pd
 import requests
-from FPLLeagueDataI2 import GettingLeagueData, elementData, fplData
-from OldSeasonDataI2 import S2526Total, S2425Total, S2324Total
-from OldWeeklyDataI2 import S2526Weekly, S2425Weekly, S2324Weekly
+from fplAnalysis.FPLLeagueDataI2 import GettingLeagueData, elementData, fplData
+from fplAnalysis.OldSeasonDataI2 import S2526Total, S2425Total, S2324Total
+from fplAnalysis.OldWeeklyDataI2 import S2526Weekly, S2425Weekly, S2324Weekly
+import numpy as np
 
 getting_seasonT = True
 
@@ -55,6 +56,14 @@ def main():
                 s2526_total_df = s2526_season_total.get_s2526_data()
                 print(s2526_total_df.sort_values(
                     by="Total Points", ascending=False))
+
+                stat_column = ["Assists", "Goals"]
+                stats_array = s2526_total_df[stat_column].to_numpy(
+                    dtype=np.float16)
+                print('--- NumPy Array ---')
+                print(stats_array)
+                print("Shape: ", stats_array.shape)
+                print("Type Shi\n")
 
                 # total season data for 24/25
                 s2425_season_total = S2425Total()

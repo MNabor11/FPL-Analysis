@@ -113,3 +113,7 @@ class S2324Total():
 """s2324_season_total = S2324Total()
 s2324_total_df = s2324_season_total.get_s2324_data()  # total season data for 23/24
 print(s2324_total_df.sort_values(by="Total Points", ascending=False))"""
+
+"""def SeasonYearTotal():
+    s2324 = S2324Total
+    print(s2324)"""
