@@ -1,8 +1,9 @@
 import pandas as pd
 import requests
-from fplAnalysis.FPLLeagueDataI2 import GettingLeagueData, elementData, fplData
-from fplAnalysis.OldSeasonDataI2 import S2526Total, S2425Total, S2324Total
-from fplAnalysis.OldWeeklyDataI2 import S2526Weekly, S2425Weekly, S2324Weekly
+from flask import Flask, render_template, jsonify
+from FPLLeagueDataI2 import GettingLeagueData, elementData, fplData
+from OldSeasonDataI2 import S2526Total, S2425Total, S2324Total
+from OldWeeklyDataI2 import S2526Weekly, S2425Weekly, S2324Weekly
 import numpy as np
 
 getting_seasonT = True
