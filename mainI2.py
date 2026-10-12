@@ -8,7 +8,15 @@ import numpy as np
 
 getting_seasonT = True
 
+app = Flask(__name__)
 
+
+@app.route("/")
+def home():
+    return render_template("fplWebpage.html")
+
+
+@app.route("/api/player-stats")
 def main():
     status = True
     while status:
@@ -89,7 +97,9 @@ def main():
             print("Invalid input \nTry again...\n")
         else:
             print("Invalid")
+    return jsonify(merge_manager_player.tail(30))
 
 
 if __name__ == "__main__":
     main()
+    app.run(debug=True)
