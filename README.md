@@ -1,4 +1,4 @@
-# FPL Predictor 
+# FPL Analysis 
 A fantasy Premier League predictor for head to head using AI 
 ## Making an FPL AI predictor for head to head 
 * Using python to make the application
