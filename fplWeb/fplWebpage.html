@@ -11,16 +11,23 @@
     <header>
         <h1>FPL Analysis</h1>
     </header>
+
+
+    <section>
+        <h3 class="h3-background">Search your League ID</h3>
+        <form action="/search" method="GET" class="search-container">
+            <input type="text" class="search-input" name="query" placeholder="Enter League ID" required>
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+    </section>
+
     <section>
         <h2 class="h2-background">Display Your Team</h2>
     </section>
 
     <section>
-        <h3 class="h3-background">Search your League ID</h3>
-        <form action="/search" method="GET" class="search-container">
-            <input type="text" class="search-input" name="query" placeholder="Search player name..." required>
-            <button type="submit" class="search-btn">Search</button>
-        </form>
+        <h3 class="h3-background" id="message"></h3>
+        <script src="learningJS.js"> </script>
     </section>
 
 </body>
