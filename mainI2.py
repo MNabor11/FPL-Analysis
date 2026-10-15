@@ -97,7 +97,7 @@ def main():
             print("Invalid input \nTry again...\n")
         else:
             print("Invalid")
-    return jsonify(merge_manager_player.tail(30))
+    return jsonify(merge_manager_player)
 
 
 if __name__ == "__main__":

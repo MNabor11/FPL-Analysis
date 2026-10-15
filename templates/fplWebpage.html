@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>FPL Analysis</title>
+    <link rel="stylesheet" href="../static/webpageStyle.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='webpageStyle.css') }}">
 </head>
 
@@ -27,6 +28,8 @@
 
     <section>
         <h3 class="h3-background" id="message"></h3>
+        <h4>Manager: <span id="Manager">Loading...</span></h4>
+        <script src="../static/learningJS.js"></script>
         <script src="{{ url_for('static', filename='learningJS.js') }}"> </script>
     </section>
 
